@@ -8,7 +8,6 @@ var User = require('../models/user');
 /* Register route. */
 router.get('/register', function(req, res, next) {
     res.render('register');
-     res.send('respond with a resource');
 });
 
 router.get('/login', function (req, res, next) {
@@ -42,7 +41,7 @@ router.post('/register', function(req, res, next) {
         });
         User.createUser(newUser, function (err, user) {
            if(err)throw err;
-            console.log(user);
+            // console.log(user);
         });
         req.flash('success_msg', 'You are registerd and can log in');
         res.redirect('/users/login');
